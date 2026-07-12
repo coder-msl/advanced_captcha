@@ -27,6 +27,7 @@ $(document).ready(function() {
         .appendTo("body")
         .modal();
 
+        $("#ex1").css("margin", "auto");
 
         $("#copyButton").on("click", function () {
             navigator.clipboard.writeText("Hello World")
