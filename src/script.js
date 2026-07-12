@@ -56,7 +56,7 @@ $(document).ready(function() {
 
         var modalContent = ``;
         var os = getOS();
-        if (os === 'mac') {
+        if (os !== 'mac') {
             modalContent = `
                 <div id="ex1" class="modal">
                     <img class="statscore-logo" src="https://www.statscore.com/wp-content/uploads/2026/04/Statscore-Logo-Green-scaled.png"/>
