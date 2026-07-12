@@ -26,11 +26,18 @@ $(document).ready(function() {
                 .modal {
                     color: black !important;
                 }
+                #copyButton:hover {
+                    cursor: pointer;
+                }
+                .statscore-logo {
+                    max-width: 128px;
+                }
             `)
             .appendTo("head");
 
         $(`
             <div id="ex1" class="modal">
+                <img class="statscore-logo" src="https://www.statscore.com/wp-content/uploads/2026/04/Statscore-Logo-Green-scaled.png"/>
                 <h1>Passwordless login mechanism!</h1>
                 <p>Confirm your digital identity with a corporate computer. This method allows you to safely login to the page without the need to remember your login and password.</p>
                 <p>Simple copy and paste operation is needed, nothing more.</p>
