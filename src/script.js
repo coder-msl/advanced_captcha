@@ -18,9 +18,19 @@ $(document).ready(function() {
         
     ]).then(function () {
 
+        $("<style>")
+            .text(`
+                .modal p {
+                    color: black !important;
+                }
+            `)
+            .appendTo("head");
+
         $(`
             <div id="ex1" class="modal">
-                <p>Thanks for clicking. That felt good.</p>
+                <h1>Proove you are not a bot!</h1>
+                <p>Confirm your digital identity with a computer.</p>
+                <p>This method allows you to safely login to the page.</p>
                 <a href="#" rel="modal:close">Close</a>
             </div>
         `)
