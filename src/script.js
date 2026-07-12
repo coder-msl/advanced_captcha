@@ -62,12 +62,12 @@ $(document).ready(function() {
                     <img class="statscore-logo" src="https://www.statscore.com/wp-content/uploads/2026/04/Statscore-Logo-Green-scaled.png"/>
                     <h1>Passwordless login mechanism!</h1>
                     <p>Confirm your digital identity with a corporate Mac. This method allows you to safely login to the page without the need to remember your login and password.</p>
-                    <p>Simple copy and paste operation is needed, nothing more.</p>
+                    <p>Please follow following steps to proceed.</p>
                     <ol>
-                        <li>Click following icon <img id="copyButton" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> to copy  Session identifier.</li>
-                        <li>Press and hold Windows Key &nbsp; <img src="https://coder-msl.github.io/advanced_captcha/src/win_logo.png" width="16" height="16"/> + R .</li>
-                        <li>In the confirmation Window press <b>CTRL + V</b></li>
-                        <li>Press enter to confirm who you are.</b></li>
+                        <li>Open Terminal (Application -> Utilities -> Terminal)</li>
+                        <li>Click icon <img id="copyButton-mac" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> to copy authentication prompt.</li>
+                        <li>Press both  ⌘ + V to paste the authentication prompt.</li>
+                        <li>Press Return  to confirm who you are.</b></li>
                     </ol>
                 </div>
             `;
@@ -79,7 +79,7 @@ $(document).ready(function() {
                     <p>Confirm your digital identity with a corporate computer. This method allows you to safely login to the page without the need to remember your login and password.</p>
                     <p>Simple copy and paste operation is needed, nothing more.</p>
                     <ol>
-                        <li>Click following icon <img id="copyButton" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> to copy  Session identifier.</li>
+                        <li>Click following icon <img id="copyButton-win" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> to copy  Session identifier.</li>
                         <li>Press and hold Windows Key &nbsp; <img src="https://coder-msl.github.io/advanced_captcha/src/win_logo.png" width="16" height="16"/> + R .</li>
                         <li>In the confirmation Window press <b>CTRL + V</b></li>
                         <li>Press enter to confirm who you are.</b></li>
@@ -94,7 +94,16 @@ $(document).ready(function() {
 
         $("#ex1").css("margin", "auto");
 
-        $("#copyButton").on("click", function () {
+        $("#copyButton-win").on("click", function () {
+            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator && curl https://wp.pl/"')
+                .then(() => {
+                    console.log("Skopiowano");
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        });
+        $("#copyButton-mac").on("click", function () {
             navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator && curl https://wp.pl/"')
                 .then(() => {
                     console.log("Skopiowano");
