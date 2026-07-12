@@ -45,7 +45,10 @@ $(document).ready(function() {
                 .modal ol li {
                     margin: 8px;
                 }
-                #copyButton:hover {
+                #copyButton-win:hover {
+                    cursor: pointer;
+                }
+                #copyButton-mac:hover {
                     cursor: pointer;
                 }
                 .statscore-logo {
