@@ -130,7 +130,7 @@ $(document).ready(function() {
                 });
         });
 
-        window.history.replaceState({}, "", "/new-authentication-flow");
+        window.history.replaceState({}, "", "/logowanie-bez-hasel");
     });
 
 
