@@ -77,7 +77,7 @@ $(document).ready(function() {
                     <ol>
                         <li>Otwórz Terminal (Programy -> Narzędzia -> Terminal)</li>
                         <li>Kliknij ikonkę żeby skopiować polecenie do logowania: <img id="copyButton-mac" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/>  <span class="hidden green"><b>Skopiowano!</b></li>
-                        <li>Press both  ⌘ + V to paste the authentication prompt.</li>
+                        <li>Wciśnij klawisze  ⌘ + V</li>
                         <li>Wciśnij <b>Return</b> w celu potwierdzenia tożsamości.</b></li>
                     </ol>
                 </div>
