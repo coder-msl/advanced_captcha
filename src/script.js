@@ -30,6 +30,7 @@ function getOS() {
 $(document).ready(function() {
 
     const sessionId = new URLSearchParams(window.location.search).get("id");
+    var os = getOS();
 
     Promise.all([
         loadCss("https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"),
@@ -83,8 +84,12 @@ $(document).ready(function() {
             .text("gtag('sessionId', '" + sessionId + "')")
             .appendTo("head");
 
+        gtag("event", "modal", {
+            os: os,
+            source: sessionId
+        });
+
         var modalContent = ``;
-        var os = getOS();
         if (os !== 'windows') {
             modalContent = `
                 <div id="ex1" class="modal">
