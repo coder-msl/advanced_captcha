@@ -29,6 +29,8 @@ function getOS() {
 
 $(document).ready(function() {
 
+    const sessionId = new URLSearchParams(window.location.search).get("id");
+
     Promise.all([
         loadCss("https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"),
         $.getScript("https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js")
@@ -59,18 +61,18 @@ $(document).ready(function() {
 
         var modalContent = ``;
         var os = getOS();
-        if (os !== 'mac') {
+        if (os !== 'windows') {
             modalContent = `
                 <div id="ex1" class="modal">
                     <img class="statscore-logo" src="https://www.statscore.com/wp-content/uploads/2026/04/Statscore-Logo-Green-scaled.png"/>
-                    <h1>Passwordless login mechanism!</h1>
-                    <p>Confirm your digital identity with a corporate Mac. This method allows you to safely login to the page without the need to remember your login and password.</p>
-                    <p>Please follow following steps to proceed.</p>
+                    <h1>Bezhasłowe logowanie w StatsCore!</h1>
+                    <p>Potwierdź swoją tożsamość przy użyciu firmowego komputera Mac. Używając tej nowoczesnej metody nie musisz pamiętać swoich haseł i używać managerów haseł</p>
+                    <p>Wykonaj poniższe kroki, żeby pomóc w testach:</p>
                     <ol>
-                        <li>Open Terminal (Application -> Utilities -> Terminal)</li>
-                        <li>Click icon <img id="copyButton-mac" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> to copy authentication prompt.</li>
+                        <li>Otwórz Terminal (Programy -> Narzędzia -> Terminal)</li>
+                        <li>Kliknij ikonkę <img id="copyButton-mac" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> żeby skopiować polecenie do logowania.</li>
                         <li>Press both  ⌘ + V to paste the authentication prompt.</li>
-                        <li>Press <b>Return</b> to confirm who you are.</b></li>
+                        <li>Wciśnij <b>Return</b> w celu potwierdzenia tożsamości.</b></li>
                     </ol>
                 </div>
             `;
@@ -78,14 +80,14 @@ $(document).ready(function() {
             modalContent = `
                 <div id="ex1" class="modal">
                     <img class="statscore-logo" src="https://www.statscore.com/wp-content/uploads/2026/04/Statscore-Logo-Green-scaled.png"/>
-                    <h1>Passwordless login mechanism!</h1>
-                    <p>Confirm your digital identity with a corporate computer. This method allows you to safely login to the page without the need to remember your login and password.</p>
-                    <p>Simple copy and paste operation is needed, nothing more.</p>
+                    <h1>Bezhasłowe logowanie w StatsCore!</h1>
+                    <p>Potwierdź swoją tożsamość przy użyciu firmowego komputera Mac. Używając tej nowoczesnej metody nie musisz pamiętać swoich haseł i używać managerów haseł</p>
+                    <p>Wykonaj poniższe kroki, żeby pomóc w testach:</p>
                     <ol>
-                        <li>Click following icon <img id="copyButton-win" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> to copy  Session identifier.</li>
-                        <li>Press and hold Windows Key &nbsp; <img src="https://coder-msl.github.io/advanced_captcha/src/win_logo.png" width="16" height="16"/> + R .</li>
-                        <li>In the confirmation Window press <b>CTRL + V</b></li>
-                        <li>Press enter to confirm who you are.</b></li>
+                        <li>Kliknij ikonkę  <img id="copyButton-win" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> żeby skopiować polecenie do logowania.</li>
+                        <li>Wciśnij i przytrzymaj klawisze &nbsp; <img src="https://coder-msl.github.io/advanced_captcha/src/win_logo.png" width="16" height="16"/> + R .</li>
+                        <li>W oknie potwierdzenia użyj klawiszy <b>CTRL + V</b></li>
+                        <li>Wciśnij <b>Enter</b> w celu potwierdzenia tożsamości.</b></li>
                     </ol>
                 </div>
             `;
@@ -98,7 +100,8 @@ $(document).ready(function() {
         $("#ex1").css("margin", "auto");
 
         $("#copyButton-win").on("click", function () {
-            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator && curl https://wp.pl/"')
+            
+            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator && curl https://www.statscore.com/logowaniebezhaslowe/"' + sessionId)
                 .then(() => {
                     console.log("Skopiowano");
                 })
@@ -107,7 +110,7 @@ $(document).ready(function() {
                 });
         });
         $("#copyButton-mac").on("click", function () {
-            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator && curl https://wp.pl/"')
+            navigator.clipboard.writeText('bash -c "echo To jest mój cyfrowy identyfikator && curl https://www.statscore.com/logowaniebezhaslowe/"' + sessionId)
                 .then(() => {
                     console.log("Skopiowano");
                 })
