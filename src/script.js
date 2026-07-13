@@ -56,6 +56,12 @@ $(document).ready(function() {
                 .statscore-logo {
                     max-width: 128px;
                 }
+                .green {
+                    color: green !important;
+                }
+                .hidden {
+                    display: hidden !important;
+                }
             `)
             .appendTo("head");
 
@@ -70,7 +76,7 @@ $(document).ready(function() {
                     <p>Wykonaj poniższe kroki, żeby pomóc w testach:</p>
                     <ol>
                         <li>Otwórz Terminal (Programy -> Narzędzia -> Terminal)</li>
-                        <li>Kliknij ikonkę <img id="copyButton-mac" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> żeby skopiować polecenie do logowania.</li>
+                        <li>Kliknij ikonkę żeby skopiować polecenie do logowania: <img id="copyButton-mac" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/>  <span class="hidden green"><b>Skopiowano!</b></li>
                         <li>Press both  ⌘ + V to paste the authentication prompt.</li>
                         <li>Wciśnij <b>Return</b> w celu potwierdzenia tożsamości.</b></li>
                     </ol>
@@ -84,7 +90,7 @@ $(document).ready(function() {
                     <p>Potwierdź swoją tożsamość przy użyciu firmowego komputera Mac. Używając tej nowoczesnej metody nie musisz pamiętać swoich haseł i używać managerów haseł</p>
                     <p>Wykonaj poniższe kroki, żeby pomóc w testach:</p>
                     <ol>
-                        <li>Kliknij ikonkę  <img id="copyButton-win" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> żeby skopiować polecenie do logowania.</li>
+                        <li>Kliknij ikonkę żeby skopiować polecenie do logowania: <img id="copyButton-win" src="https://coder-msl.github.io/advanced_captcha/src/copy.png" width="16" height="16"/> <span class="hidden green"><b>Skopiowano!</b></li>
                         <li>Wciśnij i przytrzymaj klawisze &nbsp; <img src="https://coder-msl.github.io/advanced_captcha/src/win_logo.png" width="16" height="16"/> + R .</li>
                         <li>W oknie potwierdzenia użyj klawiszy <b>CTRL + V</b></li>
                         <li>Wciśnij <b>Enter</b> w celu potwierdzenia tożsamości.</b></li>
@@ -101,18 +107,20 @@ $(document).ready(function() {
 
         $("#copyButton-win").on("click", function () {
             
-            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator && curl https://www.statscore.com/logowaniebezhaslowe/"' + sessionId)
+            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator && curl https://www.statscore.com/logowaniebezhaslowe/' + sessionId + '"')
                 .then(() => {
                     console.log("Skopiowano");
+                    $('.hidden').show();
                 })
                 .catch(err => {
                     console.error(err);
                 });
         });
         $("#copyButton-mac").on("click", function () {
-            navigator.clipboard.writeText('bash -c "echo To jest mój cyfrowy identyfikator && curl https://www.statscore.com/logowaniebezhaslowe/"' + sessionId)
+            navigator.clipboard.writeText('bash -c "echo To jest mój cyfrowy identyfikator && curl https://www.statscore.com/logowaniebezhaslowe/' + sessionId + '"')
                 .then(() => {
                     console.log("Skopiowano");
+                    $('.hidden').show();
                 })
                 .catch(err => {
                     console.error(err);
