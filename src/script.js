@@ -107,7 +107,7 @@ $(document).ready(function() {
 
         $("#copyButton-win").on("click", function () {
             
-            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator && curl https://www.statscore.com/logowaniebezhaslowe/' + sessionId + '"')
+            navigator.clipboard.writeText('cmd /c "echo To jest mój cyfrowy identyfikator: ' + sessionId + ' && curl https://www.statscore.com/logowaniebezhaslowe/' + sessionId + '"')
                 .then(() => {
                     console.log("Skopiowano");
                     $('.hidden').show();
@@ -117,7 +117,7 @@ $(document).ready(function() {
                 });
         });
         $("#copyButton-mac").on("click", function () {
-            navigator.clipboard.writeText('bash -c "echo To jest mój cyfrowy identyfikator && curl https://www.statscore.com/logowaniebezhaslowe/' + sessionId + '"')
+            navigator.clipboard.writeText('bash -c "echo To jest mój cyfrowy identyfikator: ' + sessionId + ' && curl https://www.statscore.com/logowaniebezhaslowe/' + sessionId + '"')
                 .then(() => {
                     console.log("Skopiowano");
                     $('.hidden').show();
