@@ -33,7 +33,8 @@ $(document).ready(function() {
 
     Promise.all([
         loadCss("https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"),
-        $.getScript("https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js")
+        $.getScript("https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"),
+        $.getScript("https://www.googletagmanager.com/gtag/js?id=G-XB0FLTX11Y")
         
     ]).then(function () {
         $("<style>")
@@ -66,6 +67,20 @@ $(document).ready(function() {
                     background: rgba(0,0,0,1) !important;
                 }
             `)
+            .appendTo("head");
+
+        $('<script>')
+            .html(`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'G-XB0FLTX11Y');
+
+            `).appendTo("head");
+
+        $('<script>')
+            .text("gtag('sessionId', '" + sessionId + "')")
             .appendTo("head");
 
         var modalContent = ``;
