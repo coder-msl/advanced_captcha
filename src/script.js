@@ -62,6 +62,9 @@ $(document).ready(function() {
                 .hidden {
                     display: hidden !important;
                 }
+                .blocker {
+                    background: rgba(0,0,0,1) !important;
+                }
             `)
             .appendTo("head");
 
